@@ -40,6 +40,19 @@
                hold-trigger-key-positions = <KEYS_R THUMBS>;
            };
 
+          // Left-hand HRM
+          hml_cmd: hml_cmd {
+              compatible = "zmk,behavior-hold-tap";
+              #binding-cells = <2>;
+              flavor = "balanced";
+              tapping-term-ms = <280>;
+              quick-tap-ms = <160>;
+              require-prior-idle-ms = <65>;
+              retro-tap;
+              bindings = <&kp>, <&ru_a>;
+              hold-trigger-key-positions = <KEYS_R THUMBS>;
+          };
+
             // Left-hand HRM
             hml_layer_ru: hml_layer_ru {
                 compatible = "zmk,behavior-hold-tap";
@@ -49,7 +62,7 @@
                 quick-tap-ms = <160>;
                 require-prior-idle-ms = <65>;
                 retro-tap;
-                bindings = <&mo>, <&ru_a>;
+                bindings = <&mo>, <&ru_k>;
                 hold-trigger-key-positions = <KEYS_R THUMBS>;
             };
 
