@@ -14,6 +14,66 @@
         //     bindings = <&kp>, <&kp>;  // hold, tap
         // };
 
+        tdtb: td_mouse_scroll {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            bindings = <&httl 9 7>, <&to 0>;
+            tapping-term-ms = <200>;
+        };
+
+        tdtb2: td_slow_scroll {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            bindings = <&httl 9 0>, <&to 8>;
+        };
+
+        td_bore: BASE_or_EXTRA {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            bindings = <&mo 6>, <&to 0>;
+        };
+
+        comment_or: comment_or {
+            compatible = "zmk,behavior-hold-tap";
+            label = "slash_or_comm";
+            bindings = <&comment_open_or_close>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            flavor = "tap-preferred";
+        };
+
+        comment_open_or_close: comment_open_or_close {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&comment_open>, <&comment_close>;
+            mods = <(MOD_LGUI|MOD_LSFT|MOD_LCTL)>;
+        };
+
+        backspace_or_delete: backspace_or_delete {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp BACKSPACE>, <&kp DELETE>;
+            mods = <(MOD_LCTL)>;
+        };
+
+        all_quotes: all_quotes {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&mt GRAVE SQT>, <&kp DOUBLE_QUOTES>;
+        };
+
+        space_or_super: space_or_super {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <250>;
+            quick-tap-ms = <150>;
+            require-prior-idle-ms = <125>;
+            bindings = <&super>, <&kp>;
+        };
+
         mm_f1: num_or_f1 {
             compatible    = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
@@ -124,6 +184,32 @@
             hold-trigger-key-positions = <KEYS_L THUMBS>;
         };
 
+        // Left-hand HRM
+        hml_layer: left_side_homerow_layer_mod {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "balanced";
+            tapping-term-ms = <280>;
+            quick-tap-ms = <160>;
+            require-prior-idle-ms = <65>;
+            retro-tap;
+            bindings = <&mo>, <&kp>;
+            hold-trigger-key-positions = <KEYS_R THUMBS>;
+        };
+
+        // Right-hand HRM
+        hmr_layer: right_side_homerow_layer_mod {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "balanced";
+            tapping-term-ms = <280>;
+            quick-tap-ms = <160>;
+            require-prior-idle-ms = <55>;
+            retro-tap;
+            bindings = <&mo>, <&kp>;
+            hold-trigger-key-positions = <KEYS_L THUMBS>;
+        };
+
         td_esc_scrl_slow: td_esc_scrl_slow {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
@@ -197,12 +283,6 @@
             #binding-cells = <0>;
             tapping-term-ms = <250>;
             bindings = <&mkp RCLK>, <&mo 8>;  // tap/hold, double_tap
-        };
-
-        td_bore: BASE_or_EXTRA {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            bindings = <&mo 5>, <&to 0>;
         };
 
         mm_qm_ex: question_exclamation {
