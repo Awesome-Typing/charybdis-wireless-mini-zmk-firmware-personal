@@ -14,6 +14,8 @@
 #include "keymap_features/macros.dtsi"
 #include "keymap_features/behaviors.dtsi"
 #include "keymap_features/combos.dtsi"
+#include "keymap_features/cyrillic_behavior.dtsi"
+#include "keymap_features/cyrillic_combos.dtsi"
 
 #define HOST_OS 2
 #define QUICK_TAP_MS 175
@@ -38,39 +40,6 @@
 
 #define XXX &none
 #define ___ &trans
-
-
-//#define MAKE_HRM(NAME, HOLD, TAP, TRIGGER_POS) \
-//    ZMK_HOLD_TAP(NAME, \
-//        flavor = "balanced"; \
-//        tapping-term-ms = <280>; \
-//        quick-tap-ms = <QUICK_TAP_MS>; \
-//        require-prior-idle-ms = <150>; \
-//        bindings = <HOLD>, <TAP>; \
-//        hold-trigger-key-positions = <TRIGGER_POS>; \
-//        hold-trigger-on-release; \
-//    )
-//
-//MAKE_HRM(hml, &kp, &kp, KEYS_R THUMBS)  // left-hand HRMs
-//MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)  // right-hand HRMs
-//MAKE_HRM(hml_layer, &mo, &kp, KEYS_R THUMBS) // switch layer like HRM
-//MAKE_HRM(hmr_layer, &mo, &kp, KEYS_L THUMBS) // switch layer like HRM
-//
-//// left russian home row
-////MAKE_HRM(hml_ctrl, &kp, &ru_f, KEYS_R THUMBS)
-//MAKE_HRM(hml_ctrl, &lm, &ru_f, KEYS_R THUMBS)
-//MAKE_HRM(hml_opt, &kp, &ru_bi, KEYS_R THUMBS)
-//MAKE_HRM(hml_shift, &kp, &ru_v, KEYS_R THUMBS)
-//MAKE_HRM(hml_layer_ru, &mo, &ru_a, KEYS_R THUMBS)
-//
-//
-//// right russian home row
-//MAKE_HRM(hmr_ctrl, &kp, &ru_zh, KEYS_L THUMBS)
-//MAKE_HRM(hmr_opt, &kp, &ru_d, KEYS_L THUMBS)
-//MAKE_HRM(hmr_shift, &kp, &ru_l, KEYS_L THUMBS)
-//MAKE_HRM(hmr_cmd, &lm, &ru_o, KEYS_L THUMBS)
-//MAKE_HRM(hmr_layer_dig_or_g, &mo, &ru_g, KEYS_L THUMBS)
-
 
 
 &sk {  // sticky-key config
@@ -129,20 +98,20 @@
            я  ч  с  м  и     т  ьъ  б,  ю. /*
 */
 
-//        rus {
-//            label = "Russian";
-//            bindings = <
-//// ╭────────────────┬───────────────────┬─────────────────┬───────────────────┬──────────────────────┬─────────────╮     ╭─────────────┬──────────────────────────┬───────────────────────┬───────────────────────┬───────────────────────────────────┬─────────╮
-//     ___              &ru_y               &ru_ts            &ru_u               &ru_k                  &ru_ye              &ru_n         &hmr_layer_dig_or_g DIG 0  &ru_sh_or_shch 0 0      &ru_z                   &ru_kh_or_e 0 0                     ___
-//// ├────────────────┼───────────────────┼─────────────────┼───────────────────┼──────────────────────┼─────────────┤     ├─────────────┼──────────────────────────┼───────────────────────┼───────────────────────┼───────────────────────────────────┼─────────┤
-//     ___              &hml_ctrl 0 LCTRL   &hml_opt LALT 0   &hml_shift LSHFT 0  &hml_layer_ru NAV 0    &ru_p               &ru_r         &hmr_cmd 0 RIGHT_COMMAND   &hmr_shift RSHFT K      &hmr_opt RIGHT_ALT L    &hmr_ctrl RIGHT_CONTROL SEMICOLON   ___
-//// ├────────────────┼───────────────────┼─────────────────┼───────────────────┼──────────────────────┼─────────────┤     ├─────────────┼──────────────────────────┼───────────────────────┼───────────────────────┼───────────────────────────────────┼─────────┤
-//     ___              &ru_ya              &ru_ch            &ru_s               &ru_m                  &ru_i               &ru_t         &ru_tone                   &ru_b_or COMMA 0        &ru_yu_or DOT 0         ___                                 ___
-//// ╰────────────────┴───────────────────┴─────────────────┼───────────────────┼──────────────────────┼─────────────┤     ├─────────────┼──────────────────────────┼───────────────────────┼───────────────────────┴───────────────────────────────────┴─────────╯
-//                                                            &base_mod LGUI RUS   ___                    ___                 ___           ___
-////                                                        ╰───────────────────┴──────────────────────┴─────────────╯     ╰─────────────┴──────────────────────────╯
-//            >;
-//        };
+        rus {
+            label = "Russian";
+            bindings = <
+// ╭────────────────┬───────────────────┬─────────────────┬───────────────────┬──────────────────────┬─────────────╮     ╭─────────────┬──────────────────────────┬───────────────────────┬───────────────────────┬───────────────────────────────────┬─────────╮
+     ___              &ru_y               &ru_ts            &ru_u               &ru_k                  &ru_ye              &ru_n         &hmr_layer_dig_or_g DIG 0  &ru_sh_or_shch 0 0      &ru_z                   &ru_kh_or_e 0 0                     ___
+// ├────────────────┼───────────────────┼─────────────────┼───────────────────┼──────────────────────┼─────────────┤     ├─────────────┼──────────────────────────┼───────────────────────┼───────────────────────┼───────────────────────────────────┼─────────┤
+     ___              &hml_ctrl 0 LCTRL   &hml_opt LALT 0   &hml_shift LSHFT 0  &hml_layer_ru NAV 0    &ru_p               &ru_r         &hmr_cmd 0 RIGHT_COMMAND   &hmr_shift RSHFT K      &hmr_opt RIGHT_ALT L    &hmr_ctrl RIGHT_CONTROL SEMICOLON   ___
+// ├────────────────┼───────────────────┼─────────────────┼───────────────────┼──────────────────────┼─────────────┤     ├─────────────┼──────────────────────────┼───────────────────────┼───────────────────────┼───────────────────────────────────┼─────────┤
+     ___              &ru_ya              &ru_ch            &ru_s               &ru_m                  &ru_i               &ru_t         &ru_tone                   &ru_b_or COMMA 0        &ru_yu_or DOT 0         ___                                 ___
+// ╰────────────────┴───────────────────┴─────────────────┼───────────────────┼──────────────────────┼─────────────┤     ├─────────────┼──────────────────────────┼───────────────────────┼───────────────────────┴───────────────────────────────────┴─────────╯
+                                                            &base_mod LGUI RUS   ___                    ___                 ___           ___
+//                                                        ╰───────────────────┴──────────────────────┴─────────────╯     ╰─────────────┴──────────────────────────╯
+            >;
+        };
 
         GAME {
             label = "Game";

@@ -1,5 +1,124 @@
  / {
      behaviors {
+
+         // Left-hand HRM
+         hml_ctrl: hml_ctrl {
+             compatible = "zmk,behavior-hold-tap";
+             #binding-cells = <2>;
+             flavor = "balanced";
+             tapping-term-ms = <280>;
+             quick-tap-ms = <160>;
+             require-prior-idle-ms = <65>;
+             retro-tap;
+             bindings = <&kp>, <&ru_f>;
+             hold-trigger-key-positions = <KEYS_R THUMBS>;
+         };
+
+          // Left-hand HRM
+          hml_opt: hml_opt {
+              compatible = "zmk,behavior-hold-tap";
+              #binding-cells = <2>;
+              flavor = "balanced";
+              tapping-term-ms = <280>;
+              quick-tap-ms = <160>;
+              require-prior-idle-ms = <65>;
+              retro-tap;
+              bindings = <&kp>, <&ru_bi>;
+              hold-trigger-key-positions = <KEYS_R THUMBS>;
+          };
+
+           // Left-hand HRM
+           hml_shift: hml_shift {
+               compatible = "zmk,behavior-hold-tap";
+               #binding-cells = <2>;
+               flavor = "balanced";
+               tapping-term-ms = <280>;
+               quick-tap-ms = <160>;
+               require-prior-idle-ms = <65>;
+               retro-tap;
+               bindings = <&kp>, <&ru_v>;
+               hold-trigger-key-positions = <KEYS_R THUMBS>;
+           };
+
+            // Left-hand HRM
+            hml_layer_ru: hml_layer_ru {
+                compatible = "zmk,behavior-hold-tap";
+                #binding-cells = <2>;
+                flavor = "balanced";
+                tapping-term-ms = <280>;
+                quick-tap-ms = <160>;
+                require-prior-idle-ms = <65>;
+                retro-tap;
+                bindings = <&mo>, <&ru_a>;
+                hold-trigger-key-positions = <KEYS_R THUMBS>;
+            };
+
+         // Right-hand HRM
+         hmr_ctrl: hmr_ctrl {
+             compatible = "zmk,behavior-hold-tap";
+             #binding-cells = <2>;
+             flavor = "balanced";
+             tapping-term-ms = <280>;
+             quick-tap-ms = <160>;
+             require-prior-idle-ms = <55>;
+             retro-tap;
+             bindings = <&kp>, <&ru_zh>;
+             hold-trigger-key-positions = <KEYS_L THUMBS>;
+         };
+
+          // Right-hand HRM
+          hmr_opt: hmr_opt {
+              compatible = "zmk,behavior-hold-tap";
+              #binding-cells = <2>;
+              flavor = "balanced";
+              tapping-term-ms = <280>;
+              quick-tap-ms = <160>;
+              require-prior-idle-ms = <55>;
+              retro-tap;
+              bindings = <&kp>, <&ru_d>;
+              hold-trigger-key-positions = <KEYS_L THUMBS>;
+          };
+
+           // Right-hand HRM
+           hmr_shift: hmr_shift {
+               compatible = "zmk,behavior-hold-tap";
+               #binding-cells = <2>;
+               flavor = "balanced";
+               tapping-term-ms = <280>;
+               quick-tap-ms = <160>;
+               require-prior-idle-ms = <55>;
+               retro-tap;
+               bindings = <&kp>, <&ru_l>;
+               hold-trigger-key-positions = <KEYS_L THUMBS>;
+           };
+
+            // Right-hand HRM
+            hmr_cmd: hmr_cmd {
+                compatible = "zmk,behavior-hold-tap";
+                #binding-cells = <2>;
+                flavor = "balanced";
+                tapping-term-ms = <280>;
+                quick-tap-ms = <160>;
+                require-prior-idle-ms = <55>;
+                retro-tap;
+                bindings = <&kp>, <&ru_o>;
+                hold-trigger-key-positions = <KEYS_L THUMBS>;
+            };
+
+            // Right-hand HRM
+            hmr_layer_dig_or_g: hmr_layer_dig_or_g {
+                compatible = "zmk,behavior-hold-tap";
+                #binding-cells = <2>;
+                flavor = "balanced";
+                tapping-term-ms = <280>;
+                quick-tap-ms = <160>;
+                require-prior-idle-ms = <55>;
+                retro-tap;
+                bindings = <&mo>, <&ru_g>;
+                hold-trigger-key-positions = <KEYS_L THUMBS>;
+            };
+
+
         ru_sh_or_shch: ru_sh_or_shch {
             compatible = "zmk,behavior-hold-tap";
             label = "RU_SH_OR_SHCH";
